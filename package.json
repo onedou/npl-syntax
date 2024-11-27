@@ -4,9 +4,14 @@
     "name": "onedou",
     "email": "onedou@126.com"
   },
+  "publisher": "onedou",
   "displayName": "npl-syntax",
   "description": "",
-  "version": "0.0.1",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/onedou/npl-syntax.git"
+  },
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.95.0"
   },

@@ -42,15 +42,29 @@
             },
             "patterns": [
                 {
+                    "begin": "\\bstyle\\s*=",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "keyword.operator.assignment.paracraft"
+                        }
+                    },
+                    "end": "(?<=\")",
+                    "patterns": [
+                        {
+                            "include": "#style-attribute"
+                        }
+                    ]
+                },
+                {
                     "include": "#attributes"
                 }
             ]
         },
-        "attributes": {
+        "style-attribute": {
             "patterns": [
                 {
                     "name": "entity.other.attribute-name.paracraft",
-                    "match": "\\b([a-zA-Z0-9\\-:]+)"
+                    "match": "\\b([a-zA-Z0-9\\-_:]+)"
                 },
                 {
                     "name": "keyword.operator.assignment.paracraft",
@@ -72,8 +86,58 @@
                     },
                     "patterns": [
                         {
-                            "include": "#style-attribute"
-                        },
+                            "include": "#style-attribute-style"
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.paracraft",
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.begin.paracraft"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.end.paracraft"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "name": "constant.language.paracraft",
+                            "match": "."
+                        }
+                    ]
+                }
+            ]
+        },
+        "attributes": {
+            "patterns": [
+                {
+                    "name": "entity.other.attribute-name.paracraft",
+                    "match": "\\b([a-zA-Z0-9\\-_:]+)"
+                },
+                {
+                    "name": "keyword.operator.assignment.paracraft",
+                    "match": "="
+                },
+                {
+                    "name": "string.quoted.double.paracraft",
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.begin.paracraft"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.end.paracraft"
+                        }
+                    },
+                    "patterns": [
                         {
                             "name": "constant.language.paracraft",
                             "match": "."
@@ -103,7 +167,7 @@
                 }
             ]
         },
-        "style-attribute": {
+        "style-attribute-style": {
             "patterns": [
                 {
                 "name": "meta.embedded.style.paracraft",
