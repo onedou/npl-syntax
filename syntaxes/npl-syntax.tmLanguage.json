@@ -1,0 +1,181 @@
+{
+    "$schema": "http://service.bel.org.cn:1202/https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+    "name": "npl-syntax",
+    "patterns": [
+        {
+            "include": "#script-block"
+        },
+        {
+            "include": "#tag"
+        },
+        {
+            "include": "#text"
+        },
+        {
+            "include": "#comment"
+        }
+    ],
+    "repository": {
+        "html": {
+            "patterns": [
+                {
+                    "include": "text.html.basic"
+                }
+            ]
+        },
+        "tag": {
+            "name": "meta.tag.paracraft",
+            "begin": "<(/)?([a-zA-Z0-9\\-:]+)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.begin.paracraft"
+                },
+                "2": {
+                    "name": "entity.name.tag.paracraft"
+                }
+            },
+            "end": "(\\/?)>",
+            "endCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.end.paracraft"
+                }
+            },
+            "patterns": [
+                {
+                    "include": "#attributes"
+                }
+            ]
+        },
+        "attributes": {
+            "patterns": [
+                {
+                    "name": "entity.other.attribute-name.paracraft",
+                    "match": "\\b([a-zA-Z0-9\\-:]+)"
+                },
+                {
+                    "name": "keyword.operator.assignment.paracraft",
+                    "match": "="
+                },
+                {
+                    "name": "string.quoted.double.paracraft",
+                    "begin": "\"",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.begin.paracraft"
+                        }
+                    },
+                    "end": "\"",
+                    "endCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.end.paracraft"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "include": "#style-attribute"
+                        },
+                        {
+                            "name": "constant.language.paracraft",
+                            "match": "."
+                        }
+                    ]
+                },
+                {
+                    "name": "string.quoted.single.paracraft",
+                    "begin": "'",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.begin.paracraft"
+                        }
+                    },
+                    "end": "'",
+                    "endCaptures": {
+                        "0": {
+                            "name": "constant.language.paracraft.end.paracraft"
+                        }
+                    },
+                    "patterns": [
+                        {
+                            "name": "constant.language.paracraft",
+                            "match": "."
+                        }
+                    ]
+                }
+            ]
+        },
+        "style-attribute": {
+            "patterns": [
+                {
+                "name": "meta.embedded.style.paracraft",
+                "match": "(?i)([a-zA-Z\\-]+)\\s*:\\s*([^;]+);?",
+                "captures": {
+                    "1": { "name": "support.type.property-name.css" },
+                    "2": { "name": "constant.numeric.css" }
+                }
+                }
+            ]
+        },
+        "text": {
+            "patterns": [
+                {
+                    "name": "text.plain.paracraft",
+                    "match": "[^<]+"
+                }
+            ]
+        },
+        "strings": {
+            "name": "string.quoted.double.npl-syntax",
+            "begin": "\"",
+            "end": "\"",
+            "patterns": [
+                {
+                    "name": "constant.character.escape.npl-syntax",
+                    "match": "\\\\."
+                }
+            ]
+        },
+        "script-block": {
+            "patterns": [
+                {
+                    "begin": "<script.*>",
+                    "end": "</script>",
+                    "beginCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag.begin.paracraft"
+                        },
+                        "2": {
+                            "name": "entity.name.tag.paracraft"
+                        }
+                    },
+                    "endCaptures": {
+                        "1": {
+                            "name": "punctuation.definition.tag.end.paracraft"
+                        }
+                    },
+                    "contentName": "source.lua",
+                    "patterns": [
+                        {
+                            "include": "source.lua"
+                        }
+                    ]
+                }
+            ]
+        },
+        "comment": {
+            "name": "comment.block.paracraft",
+            "begin": "<!--",
+            "beginCaptures": {
+                "0": {
+                    "name": "punctuation.definition.comment.begin.paracraft"
+                }
+            },
+            "end": "-->",
+            "endCaptures": {
+                "0": {
+                    "name": "punctuation.definition.comment.end.paracraft"
+                }
+            }
+        }
+    },
+    "scopeName": "source.npl"
+}
