@@ -1,3 +1,3 @@
-# npl synctax README
+# npl syntax README
 
 **Enjoy!**
