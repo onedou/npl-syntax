@@ -203,6 +203,7 @@
                 {
                     "begin": "<script.*>",
                     "end": "</script>",
+                    "name": "source.npl.embedded.lua",
                     "beginCaptures": {
                         "1": {
                             "name": "punctuation.definition.tag.begin.paracraft"

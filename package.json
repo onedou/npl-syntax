@@ -11,7 +11,7 @@
     "type": "git",
     "url": "https://github.com/onedou/npl-syntax.git"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "engines": {
     "vscode": "^1.95.0"
   },
@@ -28,7 +28,10 @@
     "grammars": [{
       "language": "npl-syntax",
       "scopeName": "source.npl",
-      "path": "./syntaxes/npl-syntax.tmLanguage.json"
+      "path": "./syntaxes/npl-syntax.tmLanguage.json",
+      "embeddedLanguages": {
+        "source.npl.embedded.lua": "lua"
+      }
     }]
   }
 }
