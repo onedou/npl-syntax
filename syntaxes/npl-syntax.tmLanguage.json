@@ -201,8 +201,8 @@
         "script-block": {
             "patterns": [
                 {
-                    "begin": "<script.*>",
-                    "end": "</script>",
+                    "begin": "<(script|style).*>",
+                    "end": "</(script|style)>",
                     "name": "source.npl.embedded.lua",
                     "beginCaptures": {
                         "1": {
