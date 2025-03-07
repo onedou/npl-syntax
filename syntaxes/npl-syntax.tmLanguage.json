@@ -170,12 +170,12 @@
         "style-attribute-style": {
             "patterns": [
                 {
-                "name": "meta.embedded.style.paracraft",
-                "match": "(?i)([a-zA-Z\\-]+)\\s*:\\s*([^;]+);?",
-                "captures": {
-                    "1": { "name": "support.type.property-name.css" },
-                    "2": { "name": "constant.numeric.css" }
-                }
+                    "name": "meta.embedded.style.paracraft",
+                    "match": "(?i)([a-zA-Z\\-]+)\\s*:\\s*([^;<>%=]+);?",
+                    "captures": {
+                        "1": { "name": "support.type.property-name.css" },
+                        "2": { "name": "constant.numeric.css" }
+                    }
                 }
             ]
         },
