@@ -1,6 +1,7 @@
 {
     "$schema": "http://service.bel.org.cn:1202/https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
     "name": "npl-syntax",
+    "fileTypes": ["page"],
     "patterns": [
         {
             "include": "#script-block"
@@ -214,6 +215,27 @@
                     },
                     "endCaptures": {
                         "1": {
+                            "name": "punctuation.definition.tag.end.paracraft"
+                        }
+                    },
+                    "contentName": "source.lua",
+                    "patterns": [
+                        {
+                            "include": "source.lua"
+                        }
+                    ]
+                },
+                {
+                    "begin": "<\\?npl",
+                    "end": "\\?>",
+                    "name": "source.npl.embedded.lua",
+                    "beginCaptures": {
+                        "0": {
+                            "name": "punctuation.definition.tag.begin.paracraft"
+                        }
+                    },
+                    "endCaptures": {
+                        "0": {
                             "name": "punctuation.definition.tag.end.paracraft"
                         }
                     },
